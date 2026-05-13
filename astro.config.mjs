@@ -1,0 +1,21 @@
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+
+import sitemap from "@astrojs/sitemap";
+
+import svelte from "@astrojs/svelte";
+
+// https://astro.build/config
+export default defineConfig({
+  site: "https://wdd236.netlify.app",
+  base: "/",
+  integrations: [mdx(), sitemap(), svelte()],
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "rose-pine-dawn",
+        dark: "github-dark"
+      }
+    }
+  }
+});

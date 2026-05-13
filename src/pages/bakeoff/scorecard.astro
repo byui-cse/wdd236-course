@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ScoreCard from "../../components/bakeoff/ScoreCard.svelte";
+import Login from "../../components/bakeoff/Login.svelte";
+---
+
+<BaseLayout title="Project Bakeoff Scorecard">
+  <h2>Project Bakeoff Scorecard</h2>
+  <Login client:load>
+    <!-- @ts-expect-error -->
+    <ScoreCard client:only="svelte" />
+  </Login>
+</BaseLayout>
