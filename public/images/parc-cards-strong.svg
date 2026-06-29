@@ -1,0 +1,31 @@
+<svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="340" height="200" fill="#f5f5f5"/>
+  
+  <!-- Title -->
+  <text x="170" y="25" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Strong Alignment</text>
+  
+  <!-- Card 1 -->
+  <rect x="15" y="45" width="80" height="100" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+  <rect x="20" y="50" width="70" height="35" fill="#ddd" rx="2"/>
+  <text x="20" y="98" font-size="10" font-weight="bold" fill="#333">Title</text>
+  <text x="20" y="113" font-size="8" fill="#666">Description</text>
+  <rect x="20" y="125" width="70" height="15" fill="#0066cc" rx="2"/>
+  <text x="55" y="134" font-size="8" font-weight="bold" text-anchor="middle" fill="white">Btn</text>
+  
+  <!-- Card 2 -->
+  <rect x="115" y="45" width="80" height="100" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+  <rect x="120" y="50" width="70" height="35" fill="#ddd" rx="2"/>
+  <text x="120" y="98" font-size="10" font-weight="bold" fill="#333">Title</text>
+  <text x="120" y="113" font-size="8" fill="#666">Description</text>
+  <rect x="120" y="125" width="70" height="15" fill="#0066cc" rx="2"/>
+  <text x="155" y="134" font-size="8" font-weight="bold" text-anchor="middle" fill="white">Btn</text>
+  
+  <!-- Card 3 -->
+  <rect x="215" y="45" width="80" height="100" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+  <rect x="220" y="50" width="70" height="35" fill="#ddd" rx="2"/>
+  <text x="220" y="98" font-size="10" font-weight="bold" fill="#333">Title</text>
+  <text x="220" y="113" font-size="8" fill="#666">Description</text>
+  <rect x="220" y="125" width="70" height="15" fill="#0066cc" rx="2"/>
+  <text x="255" y="134" font-size="8" font-weight="bold" text-anchor="middle" fill="white">Btn</text>
+</svg>

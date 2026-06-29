@@ -267,14 +267,6 @@ WDD 236 has five outcomes. When creating new content, signal which outcome(s) it
 
 ## Special Considerations
 
-### Bakeoff Activities
-
-Bakeoffs are high-stakes comparisons. When writing:
-
-- Emphasize **evaluation over implementation:** "How does this stack handle authentication?"
-- Encourage **documentation of tradeoffs:** "What surprised you? What would you do differently?"
-- Include **reflection prompts:** "How did this stack's learning curve compare to the last one?"
-
 ### Final Project Guidance
 
 The final project (Unit 6) represents synthesis of the entire course. When contributing:

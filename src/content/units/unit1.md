@@ -18,6 +18,7 @@ slug: unit1
 ## Ponder
 
 - [Week 1 Practice: Problem Framing and Scope](../../ponder/unit1-problem-framing)
+- [Week 2 Foundation: PARC Design Principles](../../ponder/unit1-design-principles)
 - [Week 2 Practice: Workflow, IA, and Wireframe Review](../../ponder/unit1-workflow-ia-review)
 
 ## Prove

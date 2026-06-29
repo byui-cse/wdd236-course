@@ -8,11 +8,63 @@ tags: [Information Architecture, Wireframing, UX]
 
 ## Introduction
 
-This practice activity helps you pressure-test your Unit 1 planning artifacts before submitting the prove assignment.
+This practice activity helps you pressure-test your Unit 1 planning artifacts before the prove assignment.
 
 Your goal is to find weak spots now, while changes are still cheap.
 
+You should still complete this activity using your selected project idea from [Project Specification](../../prove/project-proposal). The examples below use a sample online prescription-ordering site.
+
+This week extends your Week 1 chain:
+
+1. Purpose and persona defined the problem to solve.
+2. User stories and success criteria defined what success looks like.
+3. Now you translate that into workflow, IA, and wireframes that are buildable and testable.
+
+If an artifact cannot be traced back to a story, persona, or criterion, it is probably scope creep.
+
+This activity assumes you are starting from your Week 1 drafts:
+
+1. Problem statement and user context
+2. MVP boundaries
+3. Primary persona
+4. At least two user stories
+5. Initial success criteria
+
+Your goal this week is to transform those drafts into implementation-ready planning artifacts.
+
+## Workflow Connection Map
+
+Use this traceability check before detailed review:
+
+1. Purpose -> sets your north star.
+2. Persona -> identifies whose outcome matters most.
+3. Story -> defines a user goal in plain language.
+4. Acceptance criteria -> define done for that story.
+5. User flow -> maps steps and system responses needed to satisfy criteria.
+6. IA/sitemap -> gives each step a predictable place in navigation.
+7. Wireframe -> shows the page/state details that let users complete each step.
+
+If this chain breaks at any point, revise upstream artifacts first.
+
+Traceability example (online prescription ordering):
+
+1. Purpose: Reduce refill delays for recurring medications.
+2. Persona: Maria, parent managing prescriptions for her child.
+3. Story: As Maria, I want to request a refill quickly, so that doses are not missed.
+4. Acceptance criteria: Refill can be submitted in under 2 minutes; blocked refills show actionable text guidance.
+5. User flow: Login -> Select prescription -> Confirm refill -> View status.
+6. IA/sitemap: "My Prescriptions" and "Refill Status" are top-level, clearly labeled destinations.
+7. Wireframe: Screens include request action, confirmation state, and error state.
+
 ## **01** Workflow Quality Check
+
+Before you begin, confirm you are creating a **user flow** (task-level path in one product), not a broad cross-channel journey.
+
+Use a user flow when:
+
+1. The goal can be completed in minutes/hours.
+2. The interactions are within your app/site.
+3. You need clear screens, decisions, and system responses.
 
 Review your critical workflow and verify all four parts are present:
 
@@ -27,13 +79,48 @@ Then verify alignment with your planning artifacts:
 2. Which user story does this workflow implement?
 3. Do your acceptance criteria match the success state?
 
-Use this quick test:
+Add these checks:
+
+1. Does each flow step support a specific acceptance criterion?
+2. Does each alternate/error path include recovery guidance?
+3. Does the workflow show both user action and system feedback?
+
+Quick test:
 
 - Can another student read the workflow and explain it back to you accurately?
 - Is the alternate path realistic (not a rare edge case)?
 - Does the success state describe an observable outcome?
 
+Usability principles to apply during workflow review:
+
+1. Visibility of system status: users always know what happened.
+2. User control and freedom: users can back out, cancel, or recover.
+3. Error prevention: guardrails exist before high-cost mistakes.
+4. Recognition over recall: instructions/options are visible when needed.
+
+Workflow example (online prescription ordering):
+
+1. Trigger: User receives "2 days remaining" reminder.
+2. Main path:
+	- User signs in.
+	- User opens "My Prescriptions."
+	- User selects medication and taps "Request Refill."
+	- User confirms pickup location and submits.
+	- System shows "Refill submitted" and expected ready time.
+3. Alternate/error path:
+	- If no refills remain, system shows: "No refills remaining. Contact your provider at [phone] or request renewal."
+	- User can tap "Request Renewal" or "Call Pharmacy."
+4. Success state:
+	- Refill request recorded, confirmation number shown, and status visible from account home.
+
 ## **02** IA Quality Check
+
+Remember the distinction:
+
+1. IA is the decision system for organizing, labeling, and maintaining content.
+2. A sitemap is one artifact that visualizes part of that structure.
+
+Your sitemap should reflect IA decisions, not replace them.
 
 Review your sitemap with these prompts:
 
@@ -42,9 +129,31 @@ Review your sitemap with these prompts:
 - Is any page overloaded with unrelated responsibilities?
 - Where is the highest IA risk or uncertainty?
 
+Then trace your workflow against the sitemap:
+
+1. Can each flow step be placed in a clear location in navigation?
+2. Do labels use user language instead of team jargon?
+3. Are related actions grouped together (good information scent)?
+4. Is there a predictable path back to primary tasks?
+
 If needed, simplify your sitemap before adding more pages.
 
+IA example (online prescription ordering):
+
+1. Top-level navigation:
+	- Home
+	- My Prescriptions
+	- Refill Status
+	- Messages
+	- Account
+2. Key IA decisions:
+	- "My Prescriptions" contains medication list and refill eligibility.
+	- "Refill Status" contains active requests and fulfillment updates.
+	- Renewal requests for ineligible meds live next to refill actions, not in a separate hidden area.
+
 ## **03** Wireframe Quality Check
+
+Wireframes are structure-first blueprints, not visual polish. Their job is to show layout, hierarchy, interaction points, and state transitions clearly enough for feedback and implementation planning.
 
 For each wireframe screen/state, verify:
 
@@ -52,6 +161,16 @@ For each wireframe screen/state, verify:
 2. Supporting content is grouped logically
 3. Error or feedback areas are accounted for
 4. One accessibility consideration is documented
+5. The screen clearly supports a step in your critical workflow
+
+**Before you finalize your wireframes, apply the PARC design principles:**
+
+- **Proximity**: Are related items grouped together? Is whitespace used to separate sections?
+- **Repetition**: Do similar actions (buttons, labels, fields) look consistent?
+- **Alignment**: Are elements aligned to a grid or baseline? Does nothing feel randomly placed?
+- **Contrast**: Is the primary action visually distinct? Are interactive elements clear?
+
+If you haven't reviewed [PARC design principles yet](../unit1-design-principles), take 10 minutes to read that activity first—it will make this check much faster.
 
 Accessibility reminders:
 
@@ -59,7 +178,64 @@ Accessibility reminders:
 - Plan where error messages appear and what they say
 - Avoid relying only on color to communicate status
 
-## **04** Team Discussion Prompts
+Error-identification check (WCAG 3.3.1 aligned):
+
+1. If input is invalid, the error is identified in text.
+2. The message identifies what field/value is wrong.
+3. The message appears where users will encounter it quickly.
+4. Color can reinforce the error, but text must carry the meaning.
+
+Wireframe annotation tip:
+
+For each form or decision point, annotate:
+
+1. Expected valid input
+2. Likely user error
+3. System response text
+4. Recovery action
+
+These annotations become direct inputs to acceptance criteria and tests.
+
+Wireframe example (online prescription ordering):
+
+1. Screen A: My Prescriptions list
+	- Primary action: "Request Refill" button on each eligible prescription
+	- Supporting content: dosage, quantity remaining, last fill date
+2. Screen B: Refill confirmation
+	- Fields: pickup location or delivery option, contact method
+	- Feedback area: confirmation message with ready-time estimate
+3. Screen C: Blocked refill state
+	- Text error: "No refills remaining for this prescription"
+	- Recovery actions: "Request Renewal" and "Contact Pharmacy"
+4. Accessibility annotation sample:
+	- Error text is adjacent to the related action and announced in text, not color-only styling
+
+## **04** Acceptance Criteria Readiness Check
+
+Pick one primary story and draft or refine acceptance criteria before implementation.
+
+Criteria should be:
+
+1. Clear and concise
+2. Testable (pass/fail)
+3. Outcome-focused (what user experiences)
+4. Measurable when possible
+5. Independent where practical
+
+Fast quality test:
+
+1. Could QA test this without asking for clarification?
+2. Could a teammate implement without guessing intent?
+3. Does passing criteria prove value for the persona?
+
+Acceptance criteria example (online prescription ordering):
+
+1. Eligible prescriptions display a visible "Request Refill" action on the prescriptions list.
+2. Submitting a refill request shows a confirmation number and expected ready time.
+3. Ineligible refill attempts display field-specific text guidance and at least one recovery path.
+4. Refill status can be accessed from primary navigation in one tap/click after sign-in.
+
+## **05** Team Discussion Prompts
 
 Bring these to class or team discussion:
 
@@ -75,3 +251,22 @@ Do a 5-minute peer walkthrough:
 1. Share your workflow and wireframes with one classmate
 2. Ask them to narrate what they think happens step by step
 3. Capture one misunderstanding and revise your artifacts accordingly
+
+## What To Carry Forward
+
+Bring these refined artifacts into [Project Specification](../../prove/project-proposal):
+
+1. One clear critical workflow (main path + alternate path + success state)
+2. A first-pass sitemap with one IA risk note
+3. Low-fidelity wireframes for the workflow with accessibility annotations
+4. Decision notes and open questions for team discussion
+
+In prove, you will extend these drafts by adding more stories, adding acceptance criteria for key Must Have stories, expanding IA for all Must Have flows, and expanding wireframes beyond your initial workflow.
+
+## Optional Exploration
+
+- [User Journeys vs User Flows](https://www.nngroup.com/articles/user-journeys-vs-user-flows/)
+- [Information Architecture vs Sitemaps](https://www.nngroup.com/articles/information-architecture-sitemaps/)
+- [Wireframing overview](https://ixdf.org/literature/topics/wireframing)
+- [Acceptance Criteria guide](https://www.atlassian.com/work-management/project-management/acceptance-criteria)
+- [WCAG 3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html)

@@ -8,9 +8,29 @@ tags: [UX, Planning, Scope]
 
 ## Introduction
 
-A strong project plan starts with a clear problem definition. If your problem and scope are vague, your sitemap and wireframes will also be vague.
+A strong project plan starts with a clear problem definition. If your problem and scope are vague, your sitemap and wireframes will be too.
 
 This practice activity helps you make early decisions that directly support the Unit 1 prove assignment.
+
+You should still choose one starter concept from [Project Specification](../../prove/project-proposal) for your own submission. The examples below use a sample project: an online prescription-ordering site.
+
+Treat this as one connected workflow, not separate documents. Each artifact should feed the next.
+
+1. Purpose statement -> clarifies what success means
+2. Persona -> identifies who that success is for
+3. User stories -> translate needs into user goals
+4. MVP boundaries -> control what you will build now
+5. Success criteria -> define evidence that your solution works
+
+By the end of this activity, you should have a first draft of:
+
+1. Problem statement and target user context
+2. MVP boundaries (in scope/out of scope)
+3. One primary persona
+4. Two starter user stories
+5. Initial success criteria
+
+You will bring these drafts into [Week 2 Practice: Workflow, IA, and Wireframe Review](./unit1-workflow-ia-review), then revise and extend them again in [Project Specification](../../prove/project-proposal).
 
 ## Why This Matters
 
@@ -20,6 +40,33 @@ Before you design screens, you need to know:
 2. What problem you are solving
 3. What is inside the MVP and what is not
 4. How you will decide if your idea is useful
+
+If you skip this sequence, teams often drift into feature-first design and scope creep.
+
+## Principle Snapshot
+
+Use these principles while you complete the activity:
+
+1. Build for value first (MVP): include enough to solve one real problem end-to-end.
+2. Prioritize explicitly (MoSCoW): classify ideas as Must, Should, Could, and Won't (this round).
+3. Design for a person, not "users": a focused persona improves decisions and reduces debate.
+4. Write stories around outcomes: user stories describe benefit, not implementation details.
+5. Protect usability early: use heuristic checks before you create higher-fidelity artifacts.
+
+## Workflow: How Each Step Feeds the Next
+
+Use this chain to keep your work coherent:
+
+1. Purpose -> Persona:
+	- If your purpose is faster, safer refill requests, your persona might be a busy parent managing prescriptions for multiple family members.
+2. Persona -> User Story:
+	- Once you know the persona's goal and pain point, you can write stories such as fast refill requests and clear pickup timing.
+3. User Story -> MVP Boundary:
+	- Stories reveal which features are required now (refill request, status updates) versus later (insurance plan optimization).
+4. MVP Boundary -> Success Criteria:
+	- Scope tells you what outcomes to measure, such as completion rate and error recovery.
+5. Success Criteria -> Next-week Workflow/IA/Wireframes:
+	- Criteria become constraints for your flows, sitemap, and screen states.
 
 ## MVP and Boundaries Quick Guide
 
@@ -32,10 +79,17 @@ Use this rule:
 - In scope: must directly support your critical user workflow
 - Out of scope: nice to have, but not required to prove value
 
+Optional: MoSCoW prioritization.
+
+1. Must-have: without this, the MVP fails.
+2. Should-have: important, but can ship one phase later.
+3. Could-have: useful enhancement if capacity allows.
+4. Won't-have (for now): intentionally deferred to prevent scope creep.
+
 Example:
 
-- In scope: User can create an event, view event details, and RSVP.
-- Out of scope: Calendar sync, social sharing, and advanced recommendations.
+- In scope: User can log in, request a refill, and see pickup or delivery status.
+- Out of scope: Pharmacy loyalty rewards, doctor search, and insurance claim estimation.
 
 ## **01** Choose and Frame
 
@@ -44,6 +98,7 @@ Pick one starter concept from [Project Specification](../../prove/project-propos
 1. A problem statement (2-4 sentences)
 2. A target user description
 3. One short context statement (when/where this user has the problem)
+4. One purpose statement that completes this sentence: "This app should help [persona] achieve [outcome] with less [pain point]."
 
 Use this template:
 
@@ -52,7 +107,24 @@ Target user: [who]
 Problem: [what challenge they face]
 Context: [when/where it happens]
 Why it matters: [impact]
+Purpose: [what successful change should happen]
 ```
+
+Example (online prescription ordering):
+
+```text
+Target user: Adult patient managing 1-3 recurring prescriptions
+Problem: Refill requests are confusing and require phone calls during work hours
+Context: User is usually on mobile, often in a hurry, and may be managing medication for a child or parent
+Why it matters: Delayed refills can cause missed doses and stress
+Purpose: Help patients submit refill requests and confirm fulfillment details in under 2 minutes
+```
+
+Quick heuristic check:
+
+1. Match to real-world language: would your persona recognize your wording?
+2. Minimalist focus: is the problem narrowly scoped enough for an MVP?
+3. Error prevention mindset: did you identify at least one common user failure to design against later?
 
 ## **02** Define MVP Boundaries
 
@@ -62,6 +134,25 @@ Create two short lists:
 2. Out of scope for now
 
 Keep your MVP focused. If a feature does not support the core workflow, move it to out of scope.
+
+Then run a MoSCoW pass on your in-scope list so tradeoffs are explicit.
+
+Example (online prescription ordering):
+
+1. In scope now (MVP):
+	- Sign in and view active prescriptions
+	- Request refill for eligible prescriptions
+	- Show clear status: submitted, processing, ready, needs action
+	- Provide pickup and delivery choice when available
+2. Out of scope for now:
+	- Insurance benefit optimization
+	- Family account delegation
+	- Live chat with pharmacist
+3. MoSCoW sample:
+	- Must: refill request, status visibility, clear error messaging
+	- Should: delivery option selection, refill reminders
+	- Could: reorder shortcuts, saved payment method
+	- Won't (this phase): provider messaging and plan comparison tools
 
 ## **03** Draft a Primary Persona and Stories
 
@@ -74,11 +165,41 @@ Persona minimum:
 3. One pain point
 4. One context detail (when/where they use your app)
 
+Persona quality checks:
+
+1. Grounded in evidence: based on observed/credible behavior, not stereotypes.
+2. Actionable: specific enough that your team can say yes/no to design decisions.
+3. Focused: one primary persona for this phase.
+
 User story format:
 
 `As a [type of user], I want [goal], so that [benefit].`
 
 Keep stories small enough to support your MVP boundaries.
+
+Story quality checks:
+
+1. The user is specific (persona/role, not "everyone").
+2. The goal is an outcome, not a UI command.
+3. The "so that" benefit is meaningful and testable.
+
+Optional extension: add the 3 C's for each story.
+
+1. Card: the short story text.
+2. Conversation: notes from team clarification.
+3. Confirmation: acceptance criteria draft.
+
+Example (online prescription ordering):
+
+1. Primary persona:
+	- Name/role: Maria, working parent
+	- Goal: Refill her child's asthma medication before it runs out
+	- Pain point: Pharmacy phone queues and unclear refill status
+	- Context: Uses mobile at lunch break
+2. User story 1:
+	- As Maria, I want to request a refill in a few taps, so that my child does not miss a dose.
+3. User story 2:
+	- As Maria, I want clear status updates, so that I know when to pick up medication.
 
 ## **04** Draft Success Criteria
 
@@ -90,8 +211,46 @@ Examples:
 - Users can recover from one common error without instructor help.
 - Navigation labels are clear enough that users can predict where actions live.
 
+Criteria quality checks:
+
+1. Clear: no vague words like "easy" or "good" without context.
+2. Testable: another student can verify pass/fail.
+3. Outcome-focused: describes user-visible behavior.
+4. Independent: criteria are understandable on their own.
+
+Accessibility anchor for next week:
+
+Include at least one criterion about error handling in text (for example, form errors are identified with specific field-level text, not color alone).
+
+Example (online prescription ordering):
+
+1. A signed-in user can submit a refill request for an eligible prescription in under 2 minutes.
+2. If a refill is blocked (for example, no refills remaining), the app displays a field-specific text message with next steps.
+3. The user can check order status and identify pickup time or delivery window without contacting support.
+
 ## Reflection Prompts
 
 - Which scope decisions were hardest to make?
 - What assumptions are you making about user behavior?
 - What evidence would help you validate those assumptions?
+
+## What To Carry Forward
+
+Bring these exact artifacts into next week and into prove:
+
+1. Your selected concept and problem statement
+2. Your in-scope/out-of-scope MVP list
+3. Your primary persona
+4. Your two user stories
+5. Your 2-3 success criteria
+
+In Week 2, you will convert these into workflow, sitemap/IA, and wireframes.
+In prove, you will expand this into a full planning package with additional stories, acceptance criteria, and more complete wireframe coverage.
+
+## Optional Exploration
+
+- [Nielsen's 10 Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
+- [MVP overview and examples](https://www.productplan.com/glossary/minimum-viable-product/)
+- [MoSCoW prioritization guide](https://www.productplan.com/glossary/moscow-prioritization/)
+- [Personas overview](https://ixdf.org/literature/topics/personas)
+- [User stories and examples](https://www.atlassian.com/agile/project-management/user-stories)

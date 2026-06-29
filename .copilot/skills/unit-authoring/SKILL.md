@@ -73,9 +73,10 @@ Suggested Week 2 outputs:
 
 For each Prepare file:
 
-1. Ensure readings teach required concepts before they are submitted.
-2. Add or adjust submission bullets to produce draft artifacts needed later.
+1. Ensure terms/topics list covers required concepts before they are submitted.
+2. Add or adjust submission bullets to help students show that they have mastered the required concepts.
 3. Keep workload realistic for 60-90 minutes.
+4. Support freedom for the student to use any resource they prefer but add optional readings or resources to support each required concept.
 
 Rule:
 
