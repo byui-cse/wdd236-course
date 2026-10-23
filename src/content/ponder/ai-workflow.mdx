@@ -1,0 +1,277 @@
+---
+title: Ponder - From Learning Contract to AI-Assisted Development
+description: Turn a learning goal into a complete specification, use AI to generate a polished solution in stages, and gather evidence that the result is correct and that you understand it.
+time: 60-90 minutes for a first practice cycle; reuse throughout each contract
+aiUsage: green
+---
+
+## Purpose
+
+Your learning contract identifies what you intend to learn. In this course, AI will generate most of your code. How do you turn that plan into finished, trustworthy work when you are not the one typing it?
+
+Use this activity to practice a workflow you can repeat throughout the course:
+
+**Contract → Specify → Generate → Inspect → Test → Revise → Explain**
+
+You decide what the solution must accomplish, think through the whole problem, direct the AI to build it, and gather evidence that the result is correct and robust. Because the AI does the typing, the expected result is complete and polished, not a rough draft. Your effort goes into the specification, the review, and the verification. You remain responsible for the decisions and the resulting user experience. Follow the AI-use expectations in your assignment and approved contract.
+
+For your first use, work from the shared [model first learning contract](../model-first-learning-contract/). This activity follows its trail-card component example. Use the version of the contract you discussed with your instructor if you adapted the theme or details. Repeat the cycle for each piece of the work. You can return to an earlier step whenever a question, test, or new requirement changes your understanding.
+
+## Before you begin
+
+Have these available:
+
+- Your [learning contract](../learning-contract/), including its competency slices and guiding question.
+- A project you can run locally, or a small practice project for this contract.
+- An AI assistant and a browser with developer tools.
+- A place for brief notes alongside your contract and review evidence.
+
+These instructions work with different AI tools, including editor extensions such as Copilot or Codex in VS Code. Use your tool's way of sharing files or text. Replace bracketed text in the prompts with your own information. You do not need a particular mode, command, or model to follow the workflow.
+
+If your assistant can edit project files, review and save your current work before asking for changes. A version-control commit gives you a useful point to return to. Share relevant project context without including passwords, private information, or API secrets.
+
+## 1. Connect your contract to a complete deliverable
+
+Choose a deliverable that is small enough to finish and verify this week but complete in itself: a whole component, a whole data flow, or a whole repair. A whole website is usually too large. A half-built feature is also not a good target, because the point is to make sure the finished work is robust.
+
+For the shared first contract, begin here:
+
+| Part of the contract | Focus for this cycle |
+| --- | --- |
+| Competency slices | 1.3 Wireframes and interaction states, 1.4 Design tokens, 1.5 Component inventory, 2.1 Custom elements, and 3.1 Test tooling |
+| Guiding question | How complete does my specification need to be for AI to build the component correctly, and how will I know the result handles everything I did not think to ask for? |
+| Deliverable | A complete, polished `<trail-card>` custom element that shows a trail name, distance, difficulty, and a save button in every planned state, using the tokens in my plan, with tests |
+| Learning evidence | Predictions and observations with a missing attribute, a very long name, repeated clicks, and keyboard-only use, plus a record of what the AI got wrong or left out |
+
+You will generate the deliverable in stages, but the specification covers the whole thing. This activity helps you carry out the first contract; it does not replace its other evidence or setup requirements.
+
+For later contracts, replace this example with a deliverable that matches your slices. If your contract focuses on asynchronous data, your deliverable might be a complete data feature with loading, success, empty, and error states.
+
+Keep the guiding question visible while you work. Producing more features does not necessarily help you answer it.
+
+## 2. Specify the whole problem
+
+A **specification** describes the intended behavior and constraints. **Acceptance criteria** are observable conditions you will check to decide whether the result meets that specification.
+
+The specification is the most important thing you produce. AI builds what you describe, and it fills any gaps with guesses. Think through the whole problem before generating anything: the user and task, normal behavior, every state, error and empty conditions, accessibility, responsive behavior, how it will be tested, and what is out of scope. You can use AI to help find what you missed, but you decide what the solution must do.
+
+### Ask AI to help you clarify the specification
+
+Share the relevant contract sections and describe the current project. If the assistant can inspect files, identify the files you want it to read. Otherwise, provide relevant excerpts and explain where they belong. Do not assume the assistant has seen a file just because it is open in your editor.
+
+For the first contract, try this prompt after sharing your contract and relevant files. Adapt the details for later contracts:
+
+```text
+Help me prepare a complete specification for one deliverable of my learning contract.
+Do not write code or change files yet.
+
+My competency slices: wireframes and states, design tokens, component inventory,
+custom elements, and test tooling.
+My guiding question: How complete does my specification need to be for AI to
+build the component correctly?
+What I can already do: [my actual starting point from my contract]
+The user and task: a visitor browsing a hiking guide wants to scan a trail's
+name, distance, and difficulty at a glance and save the trail.
+My proposed deliverable: a complete <trail-card> custom element with a save
+button, using my design tokens.
+My draft specification and wireframe states: [paste or attach them]
+Project context: [relevant files, current behavior, and technologies]
+Constraints: [assignment requirements and project conventions]
+
+Ask focused questions about missing decisions that affect behavior or scope.
+Identify assumptions rather than silently choosing for me.
+Then review my draft for gaps: states, edge cases, invalid input, keyboard and
+screen reader behavior, responsive behavior, and how each requirement could be
+tested. Suggest additions as acceptance criteria I can accept or reject, and
+list what is outside this deliverable.
+Keep it small enough to finish, verify, and explain this week.
+```
+
+Answer the questions using your project goals and contract. It is fine to say, “I do not know the tradeoffs; explain the options before I decide.” If the assistant proposes extra features, decide whether they belong in this deliverable before accepting them.
+
+### Review and save the specification
+
+Here is a possible specification for the trail-card deliverable in the first contract. Review it against your own project before using it:
+
+```md
+# Deliverable: <trail-card> custom element
+
+User and task:
+A visitor wants to scan a trail's name, distance, and difficulty at a glance
+and save the trail to a list.
+
+Context and constraints:
+Use the project created during course setup and follow its existing conventions.
+Use a native custom element with no framework or dependency. Use only the CSS
+custom properties from my token table for color, type, and spacing.
+
+Acceptance criteria:
+- `<trail-card name="..." distance="..." difficulty="...">` renders all three
+  values.
+- The element is registered once and renders when it is connected to the page.
+- It implements the four wireframe states: default, focus, saved, and disabled.
+- A missing or invalid attribute renders a readable fallback, not "undefined".
+- A name three times as long wraps without overlapping neighboring content.
+- Changing an attribute after the element is on the page updates what it shows.
+- The save button toggles the saved state, dispatches a `trail-save` event with
+  the trail name, and ignores clicks while disabled.
+- The save button is a native button with an accessible name and a pressed
+  state that stays in sync with the saved state.
+- Everything works with the keyboard alone, with a visible focus indicator.
+- Text meets contrast requirements at the token values I chose.
+- Tests run from a documented command and cover rendering, fallbacks, attribute
+  changes, and the save behavior.
+
+Outside this deliverable:
+Shadow DOM, data fetching, and persistence of saved trails.
+
+Learning investigation:
+Before testing, I will predict what happens with a missing attribute, a very
+long name, repeated clicks, and keyboard-only use. I will inspect the element
+in DevTools and read my lifecycle callbacks, then try another attribute value.
+```
+
+These are the checks for this deliverable, not proof of complete accessibility or standards conformance. Add other checks that your contract and feature require.
+
+Read the draft critically. Could you actually check each criterion? “Looks professional” is vague; “a missing attribute renders a fallback” can be demonstrated. Resolve contradictory or unclear requirements, fill any gaps, remove unnecessary scope, and save the specification in your project notes or a small Markdown file. No particular filename is required.
+
+Before generating code, make sure you can explain the specification yourself. It describes your intended solution, even when AI helped you write it.
+
+## 3. Generate in stages
+
+Give the assistant the complete specification and the relevant project files, and have it build the deliverable in stages. Stages keep each result small enough to review, and a mistake in an early stage will not be hidden under later work. After each stage, inspect and check it before moving on.
+
+A reasonable sequence for the first contract:
+
+1. The element, its registration, and rendering from attributes.
+2. The states, fallbacks, and styles using your tokens.
+3. The save button, event, and accessibility behavior.
+4. The tests, then a review pass to polish and fix gaps.
+
+The prompt below works for each stage. Replace the stage placeholder with one item from your own sequence. Work through the sequence until every acceptance criterion passes.
+
+```text
+Use this reviewed specification: [attach it or paste its text].
+Read these project files first: [paths or shared excerpts].
+
+Implement this stage: [one stage of the work].
+Follow the existing project conventions and preserve unrelated work.
+Do not add features or dependencies beyond the specification. If a requirement
+conflicts with the existing project, or is unclear, explain it before changing
+scope.
+
+Before editing, briefly identify the files you expect to change and your approach.
+If you cannot edit files directly, provide changes grouped by filename and tell
+me where they belong.
+
+Afterward, summarize the changes, explain the key HTML/CSS/JavaScript decisions,
+and distinguish checks you actually ran from checks I still need to perform.
+```
+
+Read the proposed approach. Correct misunderstandings before the assistant builds on them. You can follow up with, “The specification says the save button is a native button. Do not replace it with a clickable div.”
+
+Apply or review the changes in your editor, then run the project locally. If code arrives in chat, check the filenames and insertion locations before copying it. If the assistant edits files, inspect the diff: the view showing what changed. Review every change, even when it runs.
+
+If the project does not run, give the assistant the actual error message and relevant context. Avoid asking for a complete rewrite before investigating the cause.
+
+## 4. Inspect how the result works
+
+Trace the parts responsible for the acceptance criteria and your guiding question. For the first contract, find where the element is registered, which lifecycle callbacks run, where attributes are read, and where each token is used. For a later async feature, trace the request, response processing, and interface states.
+
+Use AI to support this investigation:
+
+```text
+Help me understand [specific behavior] in [relevant code].
+Point to the elements, declarations, or functions responsible and explain how
+they interact. Suggest one small change I could investigate in browser tools.
+Leave the outcome for me to predict before you explain it. Do not edit files.
+```
+
+Check explanations against the actual code, browser evidence, and relevant documentation. An explanation can sound convincing while describing code that is not present. If you cannot follow a section, ask about that section or request a simpler implementation that still meets the specification.
+
+Pause here if the result is too large or unfamiliar to investigate. More generated code will usually make that difficulty worse.
+
+### Review for typical AI mistakes
+
+Generated code often runs and still has problems. Check each stage for:
+
+- **Invented or outdated APIs:** methods, properties, or attributes that do not exist, or that come from a framework you are not using.
+- **Missing states and edge cases:** only the happy path was implemented.
+- **Accessibility gaps:** missing names, broken focus, mouse-only behavior, or state that does not update.
+- **Unrequested changes:** extra features, new dependencies, or edits to unrelated files.
+- **Weak tests:** tests that pass because they assert almost nothing, or that duplicate the implementation.
+- **Skipped requirements:** acceptance criteria that were quietly dropped or reinterpreted.
+
+Compare the code against your specification line by line, and against documentation for anything you are not sure exists. Record what you find. It is evidence for the AI oversight competency.
+
+## 5. Test the specification and try to break the result
+
+Start with a normal user task, then check every acceptance criterion and the challenges you planned. Before each investigation, record your own prediction. AI may suggest additional cases, but make your prediction before asking it to explain the expected outcome.
+
+For the first contract, remove an attribute, give the card a name three times as long, change an attribute after the card is on the page, click the save button repeatedly, and use the card with only the keyboard. Predict what will render and which callback will run, then check what actually happens. Inspect the element and its computed styles to explain unexpected behavior. For a later async feature, test an unavailable service or unexpected response as well as a successful request.
+
+Keep notes brief:
+
+| Challenge | My prediction before testing | Observed result and evidence | Change or learning | Verification and remaining uncertainty |
+| --- | --- | --- | --- | --- |
+| [condition I changed] | [what I expect and why] | [what actually happened] | [explanation or repair] | [what I rechecked and what is still unknown] |
+
+Run the automated tests and manually check relevant behavior in the browser. Confirm that the tests would fail if the behavior broke. A passing test or a successful build does not establish that the component works for a person using it. An assistant's claim that something “passes” is only useful when you know what was checked and can inspect the evidence.
+
+You do not need to find a failure in every check. Explain what each successful check establishes and what it leaves untested. See [Try to break your work](../contract-review/#try-to-break-your-work) for peer-review preparation guidance.
+
+## 6. Revise using evidence
+
+When something fails, describe the expected behavior, the observed behavior, and how to reproduce it. Include the evidence you gathered and a hypothesis when you have one. Ask for a focused repair.
+
+```text
+This acceptance criterion is not met: [criterion].
+To reproduce it: [steps and conditions].
+Expected behavior: [expectation].
+Observed behavior: [result].
+Evidence: [relevant code, browser inspection, or error message].
+My current hypothesis: [possible cause, or say I am unsure].
+
+Help me investigate the cause and propose the smallest appropriate repair.
+Explain why the repair addresses it. Keep the other acceptance criteria intact
+and identify what I should recheck afterward.
+```
+
+Review the repair and repeat the failing check. Check normal behavior and related criteria too: a change that fixes one condition can break another. Then try another relevant variation to see whether your explanation still holds.
+
+If repeated repairs do not help, stop the generation cycle. Reduce the example, inspect the relevant mechanism, consult documentation, or ask a peer or instructor for help. If you discover that the requirement itself needs to change, revise the specification explicitly. Record contract changes when they affect the agreed learning outcome or evidence.
+
+## 7. Explain what you learned and prepare for review
+
+Return to your guiding question and answer it in your own words, using the evidence you gathered. Identify an important decision, a challenge, what became more stable, and any remaining uncertainty. Be ready to show the relevant code and browser behavior.
+
+Add a short note alongside your existing evidence:
+
+```md
+Contract and guiding question:
+Specification and relevant project files:
+
+My explanation, supported by investigation results:
+
+One consequential AI suggestion I accepted, changed, or rejected, and why:
+
+What I verified and what remains uncertain:
+
+My next step:
+```
+
+You do not need to submit a transcript of the entire AI conversation. Keep the specification, useful investigation notes, and the evidence needed for your contract and [peer review](../contract-review/). Reuse existing notes rather than writing the same account twice.
+
+You can ask AI to quiz you about the work, but attempt your own explanation before reading its answer. Being able to repeat an explanation is different from predicting or adapting the behavior yourself.
+
+## You are ready for peer review when
+
+- Your deliverable is complete and polished, addresses the agreed contract slices, and has a specification that covers the whole problem.
+- You can locate and explain the code responsible for important behavior.
+- Every acceptance criterion has been checked, and you have recorded predictions and observations from meaningful challenges.
+- Any repairs have been verified, including checks of normal behavior.
+- You can answer your guiding question with evidence and identify the limits of your checks.
+- You have recorded what the AI got wrong or left out, and how you found it.
+- Unresolved findings and the next step are recorded honestly.
+
+Use these results to plan your next cycle. That may mean another deliverable, a deeper investigation, or a revised contract. The [competency pass-off](../competency-pass-off-new/) will ask you to connect this work to the broader competency and demonstrate that you can explain and adapt it.

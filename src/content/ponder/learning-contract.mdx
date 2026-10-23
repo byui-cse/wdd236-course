@@ -1,0 +1,267 @@
+---
+title: Ponder - Create a Learning Contract
+description: Plan a student-directed learning path that leads to a demonstrable course competency.
+time: 30 minutes
+aiUsage: green
+---
+
+## Why you are doing this
+
+In this course, you will have choices about what you build, which resources you use, and how you practice. A learning contract turns those choices into a focused plan.
+
+Your contract is not a promise to predict everything that will happen. It is a starting agreement between you and your instructor about:
+
+- the competency you intend to develop,
+- the work you will do to practice it,
+- the evidence you will produce, and
+- the standard you will use to decide whether you are ready to be assessed.
+
+You may revise your contract when you learn more. Tell your instructor what changed and why.
+
+## What makes a strong contract?
+
+A strong contract is:
+
+- **Specific:** It names an observable skill, not just a broad topic.
+- **Relevant:** It connects to your project, interests, or professional goals.
+- **Challenging but possible:** It stretches you without requiring an unmanageable project.
+- **Evidence-based:** It explains what you will show, not only what you will read or watch.
+- **Time-bounded:** It identifies a first milestone and a target assessment date.
+
+“I will learn APIs” is too broad. “I will retrieve data with `fetch`, display loading and error states, and explain how the response is transformed before rendering” is specific enough to plan and assess.
+
+## Step 1: Choose a competency
+
+Review the [WDD 236 Competency Guide](../../resources/competencies/) before choosing. It explains what each competency includes, gives examples of observable practice, and describes what proficiency means at the course level. You may also want to review the [recommended path](../recommended-10-contract-path) to see how the competencies build on each other.
+
+Choose one primary competency from the guide, or propose an equivalent competency for approval.
+
+The competency guide includes details for each of these areas:
+
+1. Frontend information architecture and architectural blueprinting
+2. Component engineering and modular architecture
+3. Automated test engineering
+4. Asynchronous flow and state management
+5. Inclusive craftsmanship and accessibility compliance
+6. AI oversight, code auditing, and quality assurance
+7. Optional: Performance and deployment (team project)
+
+Two cross-cutting practices should appear in every contract when relevant:
+
+- Debugging and evidence-based troubleshooting
+- Responsible AI-assisted development (assessed directly in competency 6)
+
+You may include supporting competencies, but choose only one primary competency for this contract. Cross-cutting practices are not counted as the primary competency; include them when they naturally occur in your work.
+
+>Most of the time you will not be able to master a complete competency within a single contract. This is why the competencies have been divided into slices. Each slice represents a manageable subset of the competency that you can realistically achieve within the timeframe of your contract. You should pick the slices from the primary competency and supporting competencies that align with your learning goals. List those specific slices by ID and name (for example, “4.2 Fetching and data mapping”) in your contract.
+
+## Step 2: Check your starting point
+
+Briefly describe what you can already do and what is still uncertain.
+
+Consider:
+
+- What have you built that is related to this competency?
+- What part can you explain confidently?
+- What part do you currently need help with?
+- What evidence would show meaningful growth?
+
+Use this starting point to choose one **question guiding your learning**: What can you already accomplish but cannot yet explain, predict, or adapt confidently? Your competency slices define the scope; your question identifies what you will investigate within that scope.
+
+For example: “My layout works with the sample content. What determines whether it still works when the content becomes longer?” If the topic is new, start with a question about behavior you want to understand.
+
+## Step 3: Write your contract
+
+Copy the template below into your submission and complete every section. Use concrete language and link to resources when possible.
+
+```md
+# Learning Contract: [Your competency]
+
+Student: [Your name]
+Date: [Date]
+Target assessment date: [Date]
+
+## Primary competency
+
+By the end of this contract, I will be able to:
+
+[Write an observable outcome. Begin with “I can...”]
+
+## Specific slices in this contract
+
+[List the specific slices from the primary competency and any supporting competencies that you will focus on in this contract.]
+
+## My starting point
+
+I already know/can:
+
+[Describe your current ability and include a small example if useful.]
+
+I still need to learn or improve:
+
+[Name the specific gaps or questions you have.]
+
+## Question guiding my learning
+
+[Write one question about something within these slices that I cannot yet explain, predict, or adapt confidently.]
+
+## My learning plan
+
+I will use these resources:
+
+- [Resource, link, or person]
+- [Resource, link, or person]
+
+I will practice by:
+
+[Describe the feature, experiment, exercise, or project work you will complete.]
+
+I will challenge my work by:
+
+[Choose meaningful changes or conditions related to my slices. Before each check, I will predict the behavior, test it, and investigate unexpected results. See the peer-review preparation guidance.]
+
+My first milestone, due [date], is:
+
+[Describe the smallest meaningful increment you will complete.]
+
+## Evidence of learning
+
+I will submit or demonstrate:
+
+- [Working implementation or other artifact]
+- [Short explanation of how it works]
+- [One test, experiment, or verification result]
+- [One bug, challenge, or design decision and what I learned from it]
+- [Brief investigation notes: challenge, my prediction, observed result, change or learning, verification, and remaining uncertainty]
+
+I will know I am ready when:
+
+[List two or three observable success criteria.]
+
+## Support and risks
+
+The help I may need is:
+
+[Instructor conference, peer feedback, documentation, tutoring, or another support.]
+
+A risk to my plan is:
+
+[Name a likely obstacle and how you will respond.]
+
+## AI use, if applicable
+
+I expect to use AI for:
+
+[No AI / explanations / brainstorming / debugging / code suggestions.]
+
+I will verify AI suggestions by:
+
+[Describe the documentation, tests, experiments, or review you will use.]
+```
+
+Plan your investigations using the [peer-review preparation guidance](../contract-review/#try-to-break-your-work). Record your own predictions before testing and your observations afterward. AI may suggest challenges, but your contract should describe planned work rather than claim results you have not observed.
+
+>Alternatively you can also use the [Learning Contract skill](/learning-contract-skill.zip) to help create your contract. It does expect a certain structure to work correctly.
+>
+>In the directory you are using for your work (probably something like /wdd236), create two folders: `contracts` and `reviews`. Take the first contract we completed ([first contract](../model-first-learning-contract)) and save it as `c1.md` in the `contracts` folder. Then make sure that the first peer review record is saved as `r1.md` in the `reviews` folder. You can then use the skill to create a new contract.
+>
+>Download the zip file ([Learning Contract skill](/learning-contract-skill.zip)) and unzip it into your working directory for this course. Then open up your directory in your editor. Open the unzipped folder (learning-contract-skill) and copy the two hidden directories inside (`.agents` and `.github`) into the root of the course directory. If you already have one of these folders, merge the contents of the new folder into the existing one. 
+>
+>This should install the skill for both Github Copilot and OpenAI Codex. To use it open up the chat window and type `/learning-contract-skill` and hit enter. Then if you want to provide any additional iformation to guide the AI you can type that in the chat window and hit enter. The skill will then generate a new contract for you to review and edit.
+>
+>It will consider any contracts and reviews from your previous work, as well as the master list of competencies and the suggested path to create a new contract customized to your current progress. If you did not complete the first contract as written (for example you made something different than the recommended trail card), you should either update the `c1.md` file or add that information when you run the skill.
+>
+>Carefully review the new contract as indicated below.
+
+
+## Step 4: Review your scope
+
+Before submitting, check your plan against these questions:
+
+- Could another person tell whether I met my outcome?
+- Is my first milestone small enough to finish on time?
+- Does my evidence demonstrate understanding, not just a finished feature?
+- Does my plan help me answer my guiding question?
+- Have I included a way to test or verify my work?
+- Have I planned meaningful challenges to investigate before peer review?
+- If my plan fails, do I know what I will try next?
+
+If the answer to any question is no, revise the contract before submitting it.
+
+## Example contract
+
+```md
+# Learning Contract: Asynchronous flow and state management
+
+Student: Jordan Lee
+Date: September 9
+Target assessment date: September 23
+
+## Primary competency
+
+By the end of this contract, I can retrieve data from an external API,
+map it for my interface, and handle loading, empty, and error states.
+
+## Specific slices in this contract
+
+- 4.2 Fetching and data mapping
+- 4.3 Loading, empty, and error states
+- 4.4 Defensive error handling
+
+## My starting point
+
+I can write functions and modules, but I am not yet confident about async/await,
+reading a response object, or deciding where error handling belongs.
+
+## Question guiding my learning
+
+What determines whether my search feature recovers usefully when a request
+fails or returns data I did not expect?
+
+## My learning plan
+
+I will review the MDN Fetch API guide and the API documentation for my project.
+I will build a small search feature before integrating it into my main project.
+
+I will challenge it with an unavailable API, an empty result, and an unexpected
+response shape. Before each check I will record my prediction, then inspect the
+Network panel and interface, investigate surprises, and verify any repair by
+repeating the check and checking that a normal search still works.
+
+My first milestone is a button that makes one request and displays either the
+returned name or a visible error message.
+
+## Evidence of learning
+
+I will demonstrate the feature, explain the request and response flow, show a
+network request in browser developer tools, and bring brief investigation notes
+showing my predictions, observed results, any changes and verification, and
+remaining uncertainty. Checks that succeed will count as useful evidence too.
+
+I will know I am ready when I can explain the code without reading a script and
+can modify it to handle an empty result.
+I can use my investigation results to answer my guiding question and explain
+what my checks do and do not establish.
+```
+
+## Step 5: Submit and discuss
+
+Submit your completed contract according to your instructor’s directions. Be prepared to discuss:
+
+1. What you are trying to learn
+2. Why your plan is appropriate
+3. What evidence will demonstrate mastery
+4. Where you are most likely to get stuck
+
+Your instructor may approve the contract, suggest a smaller or larger scope, or ask you to clarify the evidence. Approval is part of the learning process; it is not a judgment that your first draft must be perfect.
+
+## After approval
+
+Use the contract during your work. If your project or plan changes, record:
+
+- what changed,
+- why it changed,
+- what competency the new work supports, and
+- whether your evidence still proves the original outcome.
+
+At the end, compare your contract with your results. Explain what you learned, which success criteria you met, and what you would pursue next.

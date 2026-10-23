@@ -1,0 +1,215 @@
+---
+title: Ponder - Model the First Learning Contract
+description: Follow a fully worked example of planning a shared first-week project with focused competency slices.
+time: 45 minutes
+aiUsage: green
+---
+
+## Purpose
+
+This activity models how student-directed work will begin in WDD 236. For the first week, everyone will work on the same general outcome so that we can learn the process together. Later contracts can be more individual and can follow different paths.
+
+This example also demonstrates an important idea:
+
+> A learning contract does not need to complete an entire competency. It can target a few slices of one competency, or combine related slices from several competencies.
+
+Review the [WDD 236 Competency Guide](../../resources/competencies/) as you read this example.
+
+After preparing your contract, use [From Learning Contract to AI-Assisted Development](../ai-workflow/) to work through a small increment. It uses this same trail-card example to practice specifying, generating, inspecting, testing, revising, and explaining your work. Follow the AI-use boundaries you agreed on in your contract.
+
+## Recommended first-week focus
+
+For the first week, I recommend that the whole class plan and build one small component. It does not need to be part of a complete application, but the component itself should be finished: complete, polished, and verified. You will use AI to generate most of the code, so the quality bar is higher than if you were typing it yourself. Your job is to think through the whole problem before you generate anything, and then make sure the AI produced a robust solution.
+
+Everyone should work on these slices:
+
+| Slice | What it means this week |
+| --- | --- |
+| 1.3 Wireframes and interaction states | Wireframe one component and label its default, focus, empty, and disabled states. |
+| 1.4 Design tokens | Choose the color, type, and spacing tokens the component uses, and write them as CSS custom properties. |
+| 1.5 Component inventory | Write a specification that covers the whole component: responsibilities, attributes, events, states, and edge cases. |
+| 2.1 Custom elements | Have AI generate a complete custom element that matches your specification, then inspect and correct it until it is polished and handles every state you planned. |
+| 3.1 Test tooling | Install and run a test runner, with tests that cover the behaviors and edge cases in your specification. |
+
+It also begins the two cross-cutting practices that continue throughout the course:
+
+- Debugging and evidence-based troubleshooting
+- Responsible AI-assisted development
+
+It is not intended to certify mastery of any competency. The goal is to practice thinking through a whole problem, directing AI to build a robust solution, and learn how the evidence works.
+
+## Resources for this week
+
+Use the resources that match your starting point. Everyone does not need to spend the same amount of time on every resource.
+
+- The [WDD 236 Competency Guide](../../resources/competencies/) for the slices and evidence used in the contract.
+- The MDN guide to [using custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements).
+- The MDN guide to [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+- The [Vitest getting started guide](https://vitest.dev/guide/).
+- The [AI-assisted development workflow](../ai-workflow/) for how to specify, generate, inspect, test, and revise.
+- A design tool such as Figma, or paper sketches photographed and added to your notes.
+
+The resource list is a menu, not a checklist. Start with the resources that address your gaps.
+
+## Fully completed example contract
+
+The following is an example of what a complete first contract could look like.
+
+```md
+# Learning Contract: Plan and build a trail card
+
+Student: Jordan Lee
+Date: September 9
+Target assessment date: September 16
+
+## Primary competency
+
+My primary competency is Frontend Information Architecture & Architectural
+Blueprinting (competency 1). I am also working on supporting slices from
+Component Engineering (2) and Automated Test Engineering (3). I am not claiming
+that this contract completes any full competency.
+
+By the end of this contract, I can wireframe a component with its states, define
+the tokens it uses, specify it completely, direct AI to build it as a polished
+custom element, and verify that it is correct with automated tests and my own
+inspection.
+
+## Specific slices in this contract
+
+- 1.3 Wireframes and interaction states
+- 1.4 Design tokens
+- 1.5 Component inventory
+- 2.1 Custom elements
+- 3.1 Test tooling
+
+## My starting point
+
+I have built web pages with HTML, CSS, and JavaScript, and I know how to use
+the DOM. I have never written a custom element or a test. I usually start coding
+before I have a design and make visual choices as I go. I have used AI to write
+code, but I usually accept what it gives me without checking it closely.
+
+I still need to learn how lifecycle callbacks work, how to define tokens that
+other components can reuse, how to run a test against code that touches the DOM,
+and how to tell whether generated code is actually correct.
+
+## Question guiding my learning
+
+How complete does my specification need to be for AI to build the component
+correctly, and how will I know the result handles everything I did not think
+to ask for?
+
+## My learning plan
+
+I will plan a trail card for a fictional hiking guide. The card shows a trail
+name, a distance, a difficulty, and a button to save the trail.
+
+I will use the Competency Guide to check my evidence, the MDN custom elements
+guide to learn the lifecycle callbacks, and the Vitest guide to set up my
+first test.
+
+I will practice in this order:
+
+1. Wireframe the card with default, focus, saved, and disabled states.
+2. List the colors, type sizes, and spacing in a token table and write them as
+   CSS custom properties.
+3. Write the component specification: attributes, events, states, and edge
+   cases.
+4. Have AI generate `<trail-card>` from my specification, in stages, and
+   inspect each stage.
+5. Install Vitest and write tests for the behaviors in my specification.
+6. Review the finished component against my specification and polish it.
+
+I will challenge my work by handing my specification to a classmate and asking
+them to describe what they would build from it. Before the conversation, I will
+predict which parts they will find ambiguous. I will also test the element with
+a missing attribute, a very long trail name, repeated clicks on the save button,
+and keyboard-only use, and record my prediction before each check. After any
+repair, I will repeat the check and check normal behavior.
+
+My first milestone, due September 11, is the wireframe and token table. I
+will ask for feedback on them before I write any code.
+
+## Evidence of learning
+
+I will submit or demonstrate:
+
+- A link to my wireframes with the four states labeled.
+- A token table and the CSS custom properties that implement it.
+- A component specification of one page or less.
+- A complete, polished `<trail-card>` in a repository that handles all four
+  states, and an explanation of its lifecycle callbacks.
+- A passing test run from a documented command, covering the specified
+  behaviors and edge cases.
+- Notes on what the AI got wrong or left out, and how I found and fixed it.
+- Brief investigation notes: what I challenged, my prediction, what happened,
+  what I changed or learned, how I verified it, and what remains uncertain.
+  A check that succeeds is useful evidence too.
+
+I will know I am ready for review when:
+
+- A classmate can describe my component from my specification without me
+  explaining it further.
+- The element is complete and polished: it renders every state I planned, and
+  there are no console errors or rough edges.
+- The tests run with one command and pass, and I can name what they do not cover.
+- I can explain why I chose each token value, and what my element does when an
+  attribute is missing.
+
+## Support and risks
+
+The help I may need is a short conversation about structuring the
+specification and understanding when custom element callbacks run. I will ask
+for help after I have recorded the expected behavior, actual behavior, and one
+hypothesis.
+
+My main risk is skipping the planning and starting with code. If that happens,
+I will stop, finish the wireframe states, and ask for feedback before building.
+
+## AI use, if applicable
+
+I expect to use AI to generate most of the code for the component and its tests.
+I will write the wireframe, token choices, and specification myself, and I will
+use AI to challenge them by suggesting edge cases I missed. I will generate the
+component in stages, not all at once.
+
+I am responsible for making sure the result is correct. I will read the
+generated code, check it against my specification and the MDN documentation, run
+it in the browser, and run my tests. I will look specifically for invented APIs,
+missing states, inaccessible behavior, and tests that pass without checking
+anything. I will record the prompts I used, what the AI got wrong or left out,
+and what I changed.
+
+I will be able to explain the final design and code, and change it when a
+requirement changes, without relying on the AI conversation.
+```
+
+## What the instructor would assess
+
+Because AI generates most of the code, the instructor expects a finished component, not a rough draft. The review focuses on whether the student thought through the whole problem, directed the AI to a robust solution, and can explain and adapt the result.
+
+Look for:
+
+- Wireframes that show more than the default state.
+- Tokens that are used consistently by the code.
+- A specification that covers the whole problem, including states and edge cases, and that someone else could follow.
+- A complete, polished custom element that matches the specification.
+- Tests that run from a documented command and check meaningful behavior.
+- Evidence that the student found and corrected at least one AI mistake or omission.
+- Evidence of testing and a clear explanation of one problem or decision.
+- A debugging record showing how a problem was investigated and verified, when a problem occurred.
+- Predictions and observations from meaningful challenges, connected to the guiding question and any remaining uncertainty.
+- An AI-use note, with prompts, rejected suggestions, and independent verification.
+
+A student may use a different component or implementation, but the result is expected to be complete. The contract is successful if the student demonstrates the agreed slices and can explain the work.
+
+## Reflection after the first week
+
+After the review, answer these questions:
+
+- Which part of the contract took more or less time than expected?
+- Which evidence best demonstrated what you learned?
+- Which competency slices should become the next contract?
+- What should change in your next plan: scope, resources, support, or evidence?
+
+Your next contract may continue this project, choose a new project, deepen one of these slices, or combine a different set of slices.

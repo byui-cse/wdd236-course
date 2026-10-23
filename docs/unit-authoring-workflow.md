@@ -44,6 +44,19 @@ Prove should require students to:
 
 If you add requirements (for example, more stories or additional views), update rubric criteria in the same edit.
 
+## 6.1) Reuse the Hybrid Competency Pattern
+
+For fast rollout in later units, reuse these assets:
+
+- TA scoring guide: `docs/ta-passoff-quick-reference.md`
+- Reusable pass-off block component: `src/components/CompetencyPassoff.astro`
+
+Recommended insertion point:
+
+1. Add the pass-off block near the top of each prove page after the overview.
+2. Fill in unit-specific evidence labels and challenge prompts.
+3. Keep the assessment split and mastery threshold language consistent unless intentionally changed.
+
 ## 7) Final Validation
 
 - Run `pnpm build`.

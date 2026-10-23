@@ -23,25 +23,27 @@ No lint, test, or typecheck scripts are configured. Validate by building.
 
 `src/content.config.ts` is the source of truth. Five collections, all using glob loaders (no Zod schemas):
 
-| Collection | Route | Folder |
-|---|---|---|
-| prepare | `/prepare/[id]` | `src/content/prepare` |
-| prove | `/prove/[id]` | `src/content/prove` |
-| ponder | `/ponder/[id]` | `src/content/ponder` |
-| resources | `/resources/[id]` | `src/content/resources` |
-| units | `/units/[id]` | `src/content/units` |
+| Collection | Route             | Folder                  |
+| ---------- | ----------------- | ----------------------- |
+| prepare    | `/prepare/[id]`   | `src/content/prepare`   |
+| prove      | `/prove/[id]`     | `src/content/prove`     |
+| ponder     | `/ponder/[id]`    | `src/content/ponder`    |
+| resources  | `/resources/[id]` | `src/content/resources` |
+| units      | `/units/[id]`     | `src/content/units`     |
 
 Route `id` = filename without extension. Legacy `src/content/config-old.ts` exists — do not add new schema there.
 
 ## Frontmatter by Collection
 
 ### prepare / prove
+
 - `title`: string (required)
 - `time`: string (required)
 - `aiUsage`: `green` | `yellow` | `red` (strongly recommended)
 - `description`: string (optional)
 
 ### ponder
+
 - `title`: string (required)
 - `description`: string (required for index summaries)
 - `time`: string (recommended)
@@ -49,12 +51,14 @@ Route `id` = filename without extension. Legacy `src/content/config-old.ts` exis
 - `tags`: string[] (optional)
 
 ### resources
+
 - `title`: string (required)
 - `description`: string (required for index summaries)
 - `time`: string (recommended)
 - `aiUsage`: `green` | `yellow` | `red` (optional)
 
 ### units
+
 - `title`: string (required)
 - `summary`: string (required)
 - `tags`: string[] (required)
@@ -90,6 +94,7 @@ Interactive pages under `src/pages/bakeoff/` and `src/pages/peer-review/` use Su
 ## Validation
 
 After adding or modifying content:
+
 1. Frontmatter keys match collection expectations
 2. Filename id and unit slug are consistent
 3. All internal links resolve logically
@@ -103,4 +108,3 @@ Review `docs/course-authoring-notes.md` before writing new content — it covers
 
 - `.github/copilot-instructions.md` — duplicate of this file (keep in sync)
 - `docs/course-authoring-notes.md` — pedagogical patterns and voice guide
-- `.copilot/skills/unit-authoring/SKILL.md` — unit alignment workflow

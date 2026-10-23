@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.3",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/svelte": "^8.0.5",
-    "@supabase/supabase-js": "^2.87.1",
-    "astro": "^6.1.8",
-    "svelte": "^5.53.5",
-    "typescript": "^5.9.3"
+    "@astrojs/mdx": "^8.1.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/svelte": "^9.1.1",
+    "@supabase/supabase-js": "^2.118.0",
+    "astro": "^7.4.2",
+    "svelte": "^5.57.2",
+    "typescript": "^7.0.2"
   },
-  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
+  "packageManager": "pnpm@12.14.0"
 }

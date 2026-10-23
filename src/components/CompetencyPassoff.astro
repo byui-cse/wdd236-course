@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  checkpoint: string;
+  primaryCompetency: string;
+  secondaryCompetencies?: string[];
+  artifactWeight?: string;
+  liveWeight?: string;
+  format?: string;
+}
+
+const {
+  title,
+  checkpoint,
+  primaryCompetency,
+  secondaryCompetencies = [],
+  artifactWeight = "60%",
+  liveWeight = "40%",
+  format = "Small-group or asynchronous video"
+} = Astro.props as Props;
+---
+
+<section class="competency-passoff">
+  <h2>{title}</h2>
+  <p><strong>{checkpoint}</strong></p>
+
+  <h3>Assessment Split</h3>
+  <ol>
+    <li>Artifact evidence: {artifactWeight}</li>
+    <li>Live challenge: {liveWeight}</li>
+  </ol>
+
+  <h3>Competency Focus</h3>
+  <ol>
+    <li>Primary: {primaryCompetency}</li>
+    {
+      secondaryCompetencies.map((competency) => (
+        <li>Secondary: {competency}</li>
+      ))
+    }
+  </ol>
+
+  <h3>Pass-Off Format</h3>
+  <p>{format}</p>
+
+  <h3>Artifact Evidence Requirements</h3>
+  <slot name="evidence" />
+
+  <h3>Live Challenge Prompts</h3>
+  <slot name="challenge" />
+
+  <h3>Meets-Mastery Signals</h3>
+  <slot name="mastery" />
+</section>
+
+<style>
+  .competency-passoff {
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .competency-passoff h2 {
+    margin-top: 0;
+  }
+
+  .competency-passoff h3 {
+    margin-bottom: 0.25rem;
+  }
+</style>

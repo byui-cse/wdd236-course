@@ -1,0 +1,269 @@
+---
+title: Ponder - Recommended 10-Contract Path
+description: A suggested sequence through the WDD 236 competency slices for students who want help choosing their learning-contract path.
+time: 30 minutes
+aiUsage: green
+---
+
+## When to use this path
+
+You are free to choose your own route through the competencies. If you are unsure what to study next, use this recommended path as a starting point.
+
+This pathway assumes one learning contract per week for 10 weeks. Each contract targets a manageable group of competency slices from the [WDD 236 Competency Guide](../../resources/competencies/). Every slice in the guide appears at least once. Contract 10 covers the optional competency 7. The path is intentionally cumulative: early contracts establish the blueprint and component foundation, middle contracts add logic, data, and state, and later contracts focus on accessibility, AI oversight, and integration.
+
+You do not need to complete an entire competency in one contract. A contract may:
+
+- target a few slices of one competency,
+- combine related slices from several competencies, or
+- revisit an earlier slice at a deeper level.
+
+The goal is to reach Proficient on every slice by the end of the path, not to complete 10 unrelated assignments. Slices you do not finish roll forward into the next contract.
+
+Use the [model first learning contract](../model-first-learning-contract/) as the example for the level of detail expected.
+
+## At a glance
+
+| Contract | Primary slices | Supporting focus |
+| --- | --- | --- |
+| 1 | 1.3, 1.4, 1.5, 2.1, 3.1 | Requirements (1.1), project tooling |
+| 2 | 1.1, 1.2, 1.5, 1.6, 2.7 | Project scripts while planning |
+| 3 | 2.2, 2.3, 3.4 | Component state testing |
+| 4 | 2.4, 2.5, 3.2, 3.3 | Refactoring a monolith |
+| 5 | 4.1, 4.2, 4.3, 4.4 | Mocked data in tests |
+| 6 | 2.6, 4.5, 4.6, 4.7 | App shell and component data flow (completes competency 2) |
+| 7 | 5.1, 5.2, 5.3, 5.4 | Reviewing earlier components |
+| 8 | 5.5, 5.6, 5.7 | Dynamic content from contract 5 |
+| 9 | 6.5, 6.6, 3.5 | Portfolio of AI evidence (6.1 to 6.4) from earlier contracts |
+| 10 | 7.1 to 7.7 | Team project (optional competency) |
+
+Debugging and responsible AI use are practiced in every contract rather than saved for one week. Most of your code will be AI-generated, so use the [AI-assisted development workflow](../ai-workflow/) each week: specify, generate, inspect, test, revise, and explain. Keep your prompts, verification notes, and overrides, because they become the evidence for slices 6.1 to 6.4.
+
+When AI is used, practice the complete cycle: ask focused questions for explanation, examples, debugging hypotheses, or comparisons; break large tasks into questions you can evaluate; check suggestions against documentation and tests; reject suggestions that are incorrect, insecure, inaccessible, or inappropriate; and explain which final decisions are your own.
+
+## Contract 1: Blueprint and build your first component
+
+### Competency slices
+
+- 1.3 Wireframes and interaction states
+- 1.4 Design tokens
+- 1.5 Component inventory
+- 2.1 Custom elements
+- 3.1 Test tooling
+
+### Suggested outcome
+
+I can wireframe one component with its states, define the design tokens it uses, write a component specification, build a first custom element from that specification, and run an automated test against it.
+
+### Suggested evidence
+
+- Wireframes showing the component's default, hover or focus, empty, and disabled states
+- A token document and the matching CSS custom properties
+- A component specification (responsibilities, inputs, events)
+- A working custom element and an explanation of its lifecycle callbacks
+- A passing test run from a documented command
+
+Use the [model first learning contract](../model-first-learning-contract/) for a fully completed example of this contract.
+
+## Contract 2: Plan the whole product
+
+### Competency slices
+
+- 1.1 Requirements analysis
+- 1.2 Sitemap and routing
+- 1.5 Component inventory (for the whole product)
+- 1.6 Change impact analysis
+- 2.7 Project tooling and build
+
+### Suggested outcome
+
+I can turn raw user needs into a prioritized requirements list, a sitemap with no dead ends, and a component map. I can use those documents to explain the impact of a requirement change.
+
+### Suggested evidence
+
+- A requirements list with a journey for each user type
+- A sitemap that includes error and empty-state routes
+- A component map for the full product
+- A written pivot: the new requirement, the affected components, and the adjusted data layout
+- A repository that installs, runs, and builds from documented commands, 
+
+## Contract 3: Encapsulate and expose components
+
+### Competency slices
+
+- 2.2 Templates and slots
+- 2.3 Shadow DOM and style encapsulation
+- 3.4 Component state tests
+
+### Suggested outcome
+
+I can build a reusable component with template and slot composition, prove its styles are isolated, and test its state changes automatically.
+
+### Suggested evidence
+
+- A component that accepts slotted content
+- DevTools evidence that global styles do not leak in or out
+- Tests for state transitions such as open, closed, and disabled
+
+## Contract 4: Separate logic from the interface
+
+### Competency slices
+
+- 2.4 ES modules
+- 2.5 Separation of concerns
+- 3.2 Unit tests for logic
+- 3.3 Strong assertions
+
+### Suggested outcome
+
+I can split a monolithic file into modules with clear boundaries, then test the extracted logic with strong assertions, including boundary and invalid inputs, and read a coverage report.
+
+### Suggested evidence
+
+- A before-and-after view of the refactor with an explanation of each boundary
+- Unit tests for the extracted utilities
+- A coverage report and an explanation of what it does and does not tell you
+- At least one test that failed before a fix, and what changed
+- One weak test that you strengthened, with an explanation of why it was weak
+
+## Contract 5: Retrieve and display asynchronous data
+
+### Competency slices
+
+- 4.1 Promises and async/await
+- 4.2 Fetching and data mapping
+- 4.3 Loading, empty, and error states
+- 4.4 Defensive error handling
+
+### Suggested outcome
+
+I can retrieve data from a documented API, map it for my interface, represent each phase of the request, recover from failure, and demonstrate those paths.
+
+### Suggested evidence
+
+- A working data module and a trace of the request flow
+- Network inspection of a request and response
+- Visible loading, empty, error, and success states
+- A demonstration with the network disabled
+
+## Contract 6: Compose views and manage state
+
+### Competency slices
+
+- 2.6 Multi-view composition
+- 4.5 Local state patterns
+- 4.6 Shared state and data flow
+- 4.7 Persistence
+
+### Suggested outcome
+
+I can combine my components into a multi-view application with an app shell, manage local and shared state with a clear update path, and persist state while handling bad stored data. This contract completes competency 2, so you can request a competency pass-off.
+
+### Suggested evidence
+
+- A multi-view application with an app shell
+- A state module and a data-flow diagram
+- Several components connected through shared state
+- A refresh test using missing and malformed stored data
+
+## Contract 7: Build accessible interactions
+
+### Competency slices
+
+- 5.1 Semantic structure
+- 5.2 Visual accessibility
+- 5.3 Keyboard operation
+- 5.4 Focus management
+
+### Suggested outcome
+
+I can audit my components and pages for semantic structure and visual accessibility, and make a keyboard user's path through them predictable, including focus management for overlays.
+
+### Suggested evidence
+
+- A landmark and heading outline of a page
+- Contrast, zoom, and touch-target checks
+- A keyboard-only walkthrough
+- A modal or similar component with a focus trap and focus return
+
+Suggested resource: the [WebAIM keyboard accessibility checklist](https://webaim.org/techniques/keyboard/).
+
+## Contract 8: Make dynamic interfaces accessible and audited
+
+### Competency slices
+
+- 5.5 ARIA and dynamic content
+- 5.6 Accessibility tree inspection
+- 5.7 Automated and manual auditing
+
+### Suggested outcome
+
+I can apply ARIA states that track a component's behavior and announce dynamic updates, inspect the accessibility tree, and combine automated and manual audits.
+
+### Suggested evidence
+
+- A list of ARIA attributes with a DOM trace of their updates
+- A live region used for data updates from contract 5
+- A before-and-after accessibility tree inspection
+- A Lighthouse or Axe report plus manual findings the tools did not catch
+
+## Contract 9: Audit, review, and integrate
+
+### Competency slices
+
+- 6.5 Auditing for quality and risk
+- 6.6 Pull request review
+- 3.5 Integration and workflow tests
+- 6.1 to 6.4, passed off from your evidence in contracts 1 to 8
+
+### Suggested outcome
+
+I can test a complete user journey through my multi-view application, and review the result as a technical lead. I can show, from my own audit trail, how I prompted AI, caught its mistakes, and verified its output.
+
+### Suggested evidence
+
+- A passing workflow test
+- A written audit with prioritized findings
+- A pull request review with justified approvals or rejections
+- A portfolio of AI evidence from earlier contracts: constrained prompts, an annotated flaw, verification notes, and a critique of an AI-written test suite
+
+Because most of your code is AI-generated, slices 6.1 to 6.4 are practiced in every contract using the [AI-assisted development workflow](../ai-workflow/). This contract is where you gather that evidence and demonstrate it.
+
+## Contract 10: Deliver a team project (optional competency)
+
+### Competency slices
+
+This is the optional competency 7. It requires working with a team.
+
+- 7.1 Team workflow
+- 7.2 Linting and formatting
+- 7.3 Automated quality gates
+- 7.4 Performance measurement
+- 7.5 Performance improvement
+- 7.6 Deployment and production verification
+- 7.7 Technical documentation
+
+### Suggested outcome
+
+I can contribute to a team project, keep its quality high with linting and automated checks, measure and improve its performance, and deploy it so that a new teammate could set it up and contribute.
+
+### Suggested evidence
+
+- Issues and pull requests showing your contributions and one resolved conflict
+- A shared lint configuration and a CI workflow that catches a deliberate failure
+- A baseline performance report and a before-and-after improvement
+- A deployed URL verified outside the local environment
+- A README and one decision record
+
+This contract usually takes more than one week. Plan it alongside earlier contracts if your team needs the time.
+
+## How to adapt this path
+
+Use this sequence as a default, then adjust it through your contracts.
+
+- If a competency is already comfortable, combine its slices with a more challenging supporting slice and aim for Advanced.
+- If a competency is new, spend the contract on fewer slices and use the prepared practice materials.
+- If your project needs a skill early (for example, testing in contract 1), pull those slices forward.
+- If a project is blocked by an API or team dependency, write a temporary contract around the underlying skill rather than waiting.
+- If evidence shows that a slice is not yet proficient, repeat it with a new context instead of moving on automatically.
+
+By the end of the 10 weeks, you should be able to point to evidence for every required slice in the guide (and the optional ones if you completed contract 10) and examples of both cross-cutting practices. Some evidence may come from the same project or contract. That is expected: professional work often demonstrates several competencies at once.
