@@ -28,7 +28,7 @@ You can tell whether you already have Git by opening a terminal (Mac) or CMD pro
 
 ### **04** Download the Course code
 
-Download some starter code for the course and setup a new GitHub repo for the new folder. [TODO: link to code and instructions to setup]
+Download some starter code for the course and setup a new GitHub repo for the new folder. [course starter code](/files/wdd236.zip)
 
 ### **05** OpenAI Education
 
