@@ -28,11 +28,11 @@ You can tell whether you already have Git by opening a terminal (Mac) or CMD pro
 
 ### **04** Download the Course code
 
-Download some starter code for the course and setup a new GitHub repo for the new folder.
+Download some starter code for the course and setup a new GitHub repo for the new folder. [TODO: link to code and instructions to setup]
 
 ### **05** OpenAI Education
 
-You also have access to an education account with OpenAI. To register do the following:
+You also have access to an education account with OpenAI. To register do the following: [TODO: add instructions to sign up]
 
 ### **06** Github Education
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Literacy Coach"
+  short_description: "Map web features and defend decisions with evidence"
+  default_prompt: "Use $code-literacy-coach to help me map one feature in my project, recognize its patterns, and verify a quality claim for my WDD 236 competency slices."

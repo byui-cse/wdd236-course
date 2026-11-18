@@ -1,0 +1,175 @@
+---
+title: Ponder Reading and Explaining AI Generated Code
+description: Map the Save interaction in your trail card, recognize recurring patterns, and use code and browser evidence to defend a design decision.
+time: 60-75 minutes
+aiUsage: green
+tags: [code literacy, AI oversight, components, investigation]
+---
+
+## Purpose
+
+You have directed AI to build a component. Can you explain why it works, find the parts responsible for its behavior, and decide whether those parts support a good user experience?
+
+Continue with the `<trail-card>` from [Model the First Learning Contract](../model-first-learning-contract/) and [From Learning Contract to AI-Assisted Development](../ai-workflow/). Investigate one interaction: **a visitor activates Save and the card changes between saved and unsaved**. Use your existing implementation; you do not need a new application.
+
+You will build a small map, support each connection with code, and test a prediction. Read individual statements when they help answer your question. Your goal is to connect the parts into an explanation you can defend.
+
+This supports **1.5 Component inventory** and **2.1 Custom elements**, and gives you practice investigating your **1.3 Wireframes and interaction states** and **1.4 Design tokens** decisions. It also builds evidence for responsible AI use. These connections do not add slices to your approved contract or certify a whole competency. Use the [Competency Guide](../../resources/competencies/) to check the evidence for your own slices.
+
+## Prepare your component and notes
+
+Have your specification, component code, running example, browser developer tools, and existing investigation notes available. If you have not generated the component yet, complete the first deliverable in the [AI workflow](../ai-workflow/) before beginning. If your contract uses another component, choose one similarly small interaction.
+
+Save your current work so you can return to it. Keep repairs separate from the initial reading: first discover what this version does. Record the date or commit you are investigating.
+
+Start your notes with your own answer, before asking AI:
+
+> What do I think happens between activating Save and seeing the saved state? Where do I think the saved value is kept?
+
+An uncertain answer is a useful starting point. Mark guesses with a question mark.
+
+## Set up your AI reading partner
+
+The course includes a **Code Literacy Coach** skill in `.agents/skills/code-literacy-coach/` in the course code download. It guides you through mapping, prediction, and verification. It can start with hints and gradually leave more of the investigation to you.
+
+If your assistant offers the skill, select it. Otherwise, share that folder's `SKILL.md` and its two files under `references/`, and ask the assistant to follow them. Share your actual application files as well; access to the course repository does not give the assistant access to your project.
+
+Use this prompt with the skill, or by itself if you do not have the skill files:
+
+```text
+Help me practice reading the Save interaction in my trail-card project.
+Use Code Literacy Coach if it is available.
+My project files: [attach or identify the relevant files]
+My specification and competency slices: [share these]
+My initial explanation: [paste your own explanation]
+
+Read the actual source. Do not edit it yet. Help me find a few landmarks,
+then build a partial map for me to complete. Ask one question at a time
+and wait for my answer before revealing the explanation.
+Connect one recurring pattern to its purpose and one quality claim to
+its implementation. Let me predict a variation before I test it myself.
+Distinguish source-based explanations from behavior I actually observe.
+Point to files and function or element names. Do not invent my evidence.
+```
+
+Ask for a hint when stuck, or an explanation of a small section. After getting help, explain it back using the actual code.
+
+## Find the landmarks
+
+Use your editor's project search and the browser's Elements panel to locate the following. Ask AI to help narrow the search if necessary.
+
+| Landmark | What to find |
+| --- | --- |
+| Page entry | Where the page loads the JavaScript that makes the card available |
+| Registration | Where `trail-card` is associated with its custom element class |
+| Initialization | Where the card creates its content and prepares to handle interactions |
+| Interaction entry | Where the Save control's handler is registered, and the handler itself |
+| State and display | Where the saved value is held and where it changes the visible control |
+
+Record the file and function, callback, or element for each. Several landmarks may be in one file. Distinguish setup from interaction: code preparing a button to respond is different from code running when the button is activated.
+
+Pause and answer: **If I wanted to investigate Save behaving incorrectly, where would I look first, and why?**
+
+## Draw one interaction map
+
+Make a sketch, a text sequence, or a diagram with roughly four to seven parts. Follow your implementation from the user action through the state change to the interface update.
+
+Here is an unfinished question map, not an answer to copy:
+
+```text
+Visitor activates Save
+    → [which handler runs?]
+    → [what saved value changes, and who owns it?]
+    → [what updates the control?]
+    → [what can the visitor now see or discover?]
+
+Does the card notify anything else? If so, who receives that notification?
+```
+
+Label connections with actions such as **calls**, **changes**, **dispatches**, or **updates**. Beside every arrow, record the file and symbol that supports it. A symbol is a name you can search for, such as a function, method, or property. If AI proposes a connection you cannot locate, leave it as a question.
+
+Look for `trail-save` if your specification calls for that event. Find where it is dispatched and what it carries. Then check whether anything listens for it. Dispatching an event does not prove that another part of the application receives it; a standalone demonstration might have no consumer yet.
+
+Keep the map faithful to this version. Do not add a shared store, API, or persistence simply because you have seen those in other examples. If your first contract excludes Shadow DOM or persistence, those remain outside this exercise.
+
+Use a breakpoint inside the handler if you want to inspect a value or see which function called it. Begin with your interaction map; zoom into a local execution question when needed.
+
+## Recognize a familiar pattern
+
+Programming patterns are recurring ways to solve a problem. Learn to recognize their purpose even when the names or file organization change.
+
+Choose one pattern you can actually find:
+
+| Pattern | What it helps you explain |
+| --- | --- |
+| Event → state change → render | How an interaction changes a value and how that value affects the interface |
+| Public inputs and events | How another part of the application can use the component without reaching into its internals |
+| Token → component style | How a shared visual decision becomes a concrete style on the card |
+| Arrange → act → assert | How a test prepares a situation, performs an action, and checks the result |
+
+Point to the parts of your chosen pattern. Explain the problem it solves and one way it could be incomplete. For example, seeing code update a button's appearance raises another question: does the control's accessible state change too?
+
+Summarize the purpose in one sentence. Move beyond “this assigns a value” toward an explanation such as “this keeps the control's representation consistent with the saved state.” Use that explanation only if your source supports it.
+
+## Defend one quality claim
+
+Choose a claim relevant to your contract and investigate **claim → mechanism → observation → limitation**.
+
+| Possible claim | Code to investigate | Observation to make |
+| --- | --- | --- |
+| The saved state is discoverable and operable | Native control, accessible name, pressed state, focus styling | Activate using the keyboard; inspect the computed accessible name and state before and after |
+| Long trail names remain readable | Layout, wrapping, spacing, and sizing rules | Try a much longer name at a narrow viewport and inspect the result |
+| The card follows my design tokens | Custom properties and the rules consuming them | Inspect a computed style and trace it back to the intended token |
+| A missing input has a useful fallback | Attribute reading and fallback behavior | Remove one attribute and compare the result with the specification |
+
+Start with a prediction in your own words. Then perform the check yourself. For the keyboard check, use Tab to reach Save, note the visible focus, and activate it. Inspect the button's accessibility information in developer tools to compare what it exposes before and after.
+
+Record exactly what your observation establishes. A working keyboard interaction and an exposed pressed state support specific accessibility claims; they do not establish complete accessibility of the component.
+
+If the behavior differs from your prediction, return to the responsible code and correct your map or explanation. If a repair is needed, use the AI workflow's focused repair process and recheck both the failing case and ordinary use.
+
+## Challenge your explanation
+
+Choose one related variation. Predict it before you ask AI for its answer or try it:
+
+- Activate Save twice. Which values and representations should return to their starting state? What events should occur?
+- Use the card's documented disabled interface, then attempt activation. Which part of the implementation determines the result?
+- Change an input after the card appears. What should update according to your specification, and which callback or method makes that happen?
+
+Use only interfaces your card actually exposes. If it lacks a required interface, record the gap. You do not need to add unrelated capabilities to complete the investigation.
+
+Test the variation, compare prediction and observation, and revise your explanation. A correct prediction is useful evidence too; you do not need to discover a bug.
+
+## Explain it to a peer and try unfamiliar code
+
+Close the AI conversation. Use your map and source to give a two-minute explanation of the interaction. Ask your peer to choose one arrow and say, “Show me what makes this happen.” Then have them ask why one decision supports the user experience and what evidence backs your answer.
+
+Compare with your peer's implementation of the same component. Find the same pattern even if their names and structure differ. If no peer is available, ask AI for a short, differently structured example of your selected pattern, without an explanation. Identify its parts yourself before requesting feedback. You do not need to build or install another application.
+
+What helped you find your starting point in this unfamiliar version? Which clue was reliable, and which needed checking?
+
+## Keep a short investigation record
+
+Add this to your existing contract or [peer review](../contract-review/) notes. Reuse observations you already recorded rather than creating a separate report.
+
+```text
+Feature, date or version, and slices:
+My initial explanation:
+My corrected map and source references:
+Pattern and the problem it solves:
+Quality claim and code supporting it:
+My prediction before the check:
+What I observed and under what conditions:
+What changed in my understanding:
+Related variation and result:
+What I could explain in the unfamiliar example:
+What remains uncertain and my next step:
+```
+
+You are ready to discuss this investigation when you can locate the interaction's entry point, explain its state and update path, support each map connection with code, and defend one quality claim with an observation. Identify which parts you still need help understanding. This prepares you for the [competency pass-off](../competency-pass-off/); the instructor or TA evaluates the agreed competency evidence.
+
+## Repeat with less help
+
+For your next feature, use the same routine: **choose a behavior → find landmarks → map the path → recognize a pattern → predict → verify → explain**.
+
+Ask AI to give you only an entry point next time. Later, draw your own map before requesting feedback. When AI changes your code, predict which map connections will change, inspect the actual changes, and update those connections. Your map should describe the application you have now.

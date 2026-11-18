@@ -57,33 +57,30 @@ The specification is the most important thing you produce. AI builds what you de
 
 ### Ask AI to help you clarify the specification
 
-Share the relevant contract sections and describe the current project. If the assistant can inspect files, identify the files you want it to read. Otherwise, provide relevant excerpts and explain where they belong. Do not assume the assistant has seen a file just because it is open in your editor.
+Share your current, approved or adapted contract with the assistant. Attach it or provide its path if the assistant can read files. If it cannot, paste the relevant sections instead. Identify the project files and any draft designs you want it to read or attach them. Do not assume the assistant has seen a file just because it is open in your editor. You should also read through the contract yourself to review any tasks you were supposed to have completed before making a specification. (Hint...there are for this first contract.)
 
-For the first contract, try this prompt after sharing your contract and relevant files. Adapt the details for later contracts:
+For the first contract, try this prompt after sharing your contract and relevant files. Fill in the additional context and adapt the deliverable for later contracts:
 
 ```text
-Help me prepare a complete specification for one deliverable of my learning contract.
+Read my learning contract: [attached file, path, or pasted sections].
+Confirm the competency slices, guiding question, and starting point you found.
 Do not write code or change files yet.
 
-My competency slices: wireframes and states, design tokens, component inventory,
-custom elements, and test tooling.
-My guiding question: How complete does my specification need to be for AI to
-build the component correctly?
-What I can already do: [my actual starting point from my contract]
 The user and task: a visitor browsing a hiking guide wants to scan a trail's
 name, distance, and difficulty at a glance and save the trail.
 My proposed deliverable: a complete <trail-card> custom element with a save
 button, using my design tokens.
-My draft specification and wireframe states: [paste or attach them]
-Project context: [relevant files, current behavior, and technologies]
-Constraints: [assignment requirements and project conventions]
+Relevant project files and draft designs: [paths, attachments, or excerpts]
+Additional context or constraints not in my contract: [current behavior,
+technologies, assignment requirements, or project conventions]
 
+Help me prepare a complete specification for this deliverable.
 Ask focused questions about missing decisions that affect behavior or scope.
 Identify assumptions rather than silently choosing for me.
-Then review my draft for gaps: states, edge cases, invalid input, keyboard and
-screen reader behavior, responsive behavior, and how each requirement could be
-tested. Suggest additions as acceptance criteria I can accept or reject, and
-list what is outside this deliverable.
+Review the available information for gaps: states, edge cases, invalid input,
+keyboard and screen reader behavior, responsive behavior, and how each
+requirement could be tested. Suggest acceptance criteria I can accept or reject,
+and list what is outside this deliverable.
 Keep it small enough to finish, verify, and explain this week.
 ```
 
@@ -190,6 +187,8 @@ Leave the outcome for me to predict before you explain it. Do not edit files.
 Check explanations against the actual code, browser evidence, and relevant documentation. An explanation can sound convincing while describing code that is not present. If you cannot follow a section, ask about that section or request a simpler implementation that still meets the specification.
 
 Pause here if the result is too large or unfamiliar to investigate. More generated code will usually make that difficulty worse.
+
+For a guided first investigation, use [Reading and Explaining AI Generated Code](../reading-ai-generated-code/). It follows this same trail card through its Save interaction, introduces the Code Literacy Coach skill, and helps you build a map supported by code and browser observations.
 
 ### Review for typical AI mistakes
 

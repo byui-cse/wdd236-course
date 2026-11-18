@@ -6,7 +6,7 @@ BYU-Idaho WDD 236 course site built with Astro. Static content delivery with int
 
 ## Tech Stack
 
-- **Framework:** Astro 6 with content collections (glob-based loaders) and static routes
+- **Framework:** Astro with content collections (glob-based loaders) and static routes; see `package.json` for the version
 - **Content:** Markdown and MDX under `src/content`
 - **Interactive UI:** Svelte 5 + Supabase (bakeoff and peer-review pages only)
 - **Package Manager:** pnpm
@@ -31,7 +31,7 @@ No lint, test, or typecheck scripts are configured. Validate by building.
 | resources  | `/resources/[id]` | `src/content/resources` |
 | units      | `/units/[id]`     | `src/content/units`     |
 
-Route `id` = filename without extension. Legacy `src/content/config-old.ts` exists — do not add new schema there.
+Route `id` = filename without extension. Do not add course-content schemas to legacy configuration files unless asked to migrate legacy content.
 
 ## Frontmatter by Collection
 
@@ -79,6 +79,14 @@ Import with relative paths from content files:
 - Between sibling content files: relative paths without extensions
 - Prefer links matching collection route ids
 
+## Content Style and Authoring
+
+- Use clear instructional structure with headings such as Overview, Steps, and Submission.
+- Preserve the direct, practical, student-facing course voice. Prefer concise paragraphs and ordered task steps.
+- Use Markdown links for internal navigation and MDX when Astro components are needed.
+- Choose the collection first, scaffold frontmatter before writing the body, and keep section names consistent with nearby files.
+- Review `docs/course-authoring-notes.md` before writing new content; it is the default source for course guiding principles, voice, activity patterns, and learning outcome alignment.
+
 ## Supabase (Bakeoff / Peer Review)
 
 Interactive pages under `src/pages/bakeoff/` and `src/pages/peer-review/` use Supabase. Client in `src/lib/supabase.ts` requires `PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY` from `.env` (gitignored, present in repo root). Svelte components live under `src/components/bakeoff/` and `src/components/peer-review/`. Do not modify these pages unless explicitly requested.
@@ -100,11 +108,7 @@ After adding or modifying content:
 3. All internal links resolve logically
 4. Run `pnpm build` and fix any content or route errors
 
-## Authoring Guidance
-
-Review `docs/course-authoring-notes.md` before writing new content — it covers voice, activity patterns, component usage, and learning outcome alignment.
-
 ## Instruction Sources
 
-- `.github/copilot-instructions.md` — duplicate of this file (keep in sync)
+- `AGENTS.md` — shared project instructions
 - `docs/course-authoring-notes.md` — pedagogical patterns and voice guide

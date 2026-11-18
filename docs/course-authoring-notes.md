@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This guide helps authors create course content aligned with WDD 236's pedagogical approach and quality standards. It complements [course-summary.md](./course-summary.md) (philosophy) and [../.github/copilot-instructions.md](../.github/copilot-instructions.md) (tech/repo mechanics).
+This guide helps authors create course content aligned with WDD 236's pedagogical approach and quality standards. It complements [course-summary.md](./course-summary.md) (philosophy) and [AGENTS.md](../AGENTS.md) (tech/repo mechanics).
 
 ## Voice and Tone
 
@@ -253,7 +253,7 @@ WDD 236 has five outcomes. When creating new content, signal which outcome(s) it
 ## Authoring Workflow
 
 1. **Choose collection:** prepare, prove, ponder, resources, or units.
-2. **Scaffold frontmatter** with required fields (see [../.github/copilot-instructions.md](../.github/copilot-instructions.md) for details).
+2. **Scaffold frontmatter** with required fields (see [AGENTS.md](../AGENTS.md) for details).
 3. **Write intro/context:** Why does this activity matter? What will students do?
 4. **Structure content** following the type pattern above.
 5. **Add components** (AIUsage, Details, Figure, Video) where helpful; don't overuse.
@@ -297,4 +297,4 @@ As the course evolves:
 
 - [Course Summary](./course-summary.md) – Philosophy and pedagogy.
 - [Syllabus](../src/content/resources/syllabus.mdx) – Policies, outcomes, grading.
-- [Copilot Instructions](../.github/copilot-instructions.md) – Tech stack, config, repo patterns.
+- [Project Instructions](../AGENTS.md) – Tech stack, config, repo patterns.
