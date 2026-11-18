@@ -13,7 +13,7 @@ Use this activity to practice a workflow you can repeat throughout the course:
 
 **Contract → Specify → Generate → Inspect → Test → Revise → Explain**
 
-You decide what the solution must accomplish, think through the whole problem, direct the AI to build it, and gather evidence that the result is correct and robust. Because the AI does the typing, the expected result is complete and polished, not a rough draft. Your effort goes into the specification, the review, and the verification. You remain responsible for the decisions and the resulting user experience. Follow the AI-use expectations in your assignment and approved contract.
+You decide what the solution must accomplish, think through the whole problem, direct the AI to build it, and gather evidence that the result is correct and robust. Because the AI does the typing, the expected result should be complete and polished, not a rough draft. Your effort goes into the specification, the review, and the verification. You remain responsible for the decisions and the resulting user experience. Follow the AI-use expectations in your assignment and approved contract.
 
 For your first use, work from the shared [model first learning contract](../model-first-learning-contract/). This activity follows its trail-card component example. Use the version of the contract you discussed with your instructor if you adapted the theme or details. Repeat the cycle for each piece of the work. You can return to an earlier step whenever a question, test, or new requirement changes your understanding.
 
@@ -22,7 +22,7 @@ For your first use, work from the shared [model first learning contract](../mode
 Have these available:
 
 - Your [learning contract](../learning-contract/), including its competency slices and guiding question.
-- A project you can run locally, or a small practice project for this contract.
+- A project you can run locally, or a small practice project for this contract. (The WDD 236 course setup activity creates one.)
 - An AI assistant and a browser with developer tools.
 - A place for brief notes alongside your contract and review evidence.
 
@@ -70,9 +70,9 @@ The user and task: a visitor browsing a hiking guide wants to scan a trail's
 name, distance, and difficulty at a glance and save the trail.
 My proposed deliverable: a complete <trail-card> custom element with a save
 button, using my design tokens.
-Relevant project files and draft designs: [paths, attachments, or excerpts]
+Relevant project files and draft designs: [paths, attachments, or excerpts such as wireframes, token table, or component inventory].
 Additional context or constraints not in my contract: [current behavior,
-technologies, assignment requirements, or project conventions]
+technologies, assignment requirements, or project conventions...sometimes this will be empty].
 
 Help me prepare a complete specification for this deliverable.
 Ask focused questions about missing decisions that affect behavior or scope.
@@ -88,21 +88,58 @@ Answer the questions using your project goals and contract. It is fine to say, �
 
 ### Review and save the specification
 
-Here is a possible specification for the trail-card deliverable in the first contract. Review it against your own project before using it:
+Here is a possible specification for the trail-card deliverable in the first contract. It is given as an example. You should generate your own based on your wireframe/mockup and design tokens. 
 
 ```md
 # Deliverable: <trail-card> custom element
 
-User and task:
+## User and task:
 A visitor wants to scan a trail's name, distance, and difficulty at a glance
 and save the trail to a list.
 
-Context and constraints:
+## Context and constraints:
 Use the project created during course setup and follow its existing conventions.
 Use a native custom element with no framework or dependency. Use only the CSS
 custom properties from my token table for color, type, and spacing.
 
-Acceptance criteria:
+## Inputs and fallback behavior
+
+| Attribute | Type | Behavior |
+| --- | --- | --- |
+| `name` | String | Displays the trail name. Missing, empty, or whitespace-only values display “Untitled trail.” |
+| `distance` | String | Displays the distance as supplied, without parsing or converting units. Missing, empty, or whitespace-only values display “Distance unavailable.” |
+| `difficulty` | String | Displays the difficulty as supplied. Missing, empty, or whitespace-only values display “Difficulty unavailable.” |
+| `saved` | Boolean | Presence initializes the card as saved; absence initializes it as unsaved. Reflect state changes back to the attribute. |
+| `disabled` | Boolean | Presence disables saving and dims the card; absence enables saving. |
+
+For text attributes, whitespace-only means empty after trimming. Preserve
+non-empty supplied values as display text; do not interpret them as markup.
+HTML boolean attributes follow presence semantics: an attribute is true when
+present, even if its value is the string `"false"`.
+
+## Visual and responsive behavior
+
+Use the Campfire design starters:
+
+| Token | Value |
+| --- | --- |
+| Surface | `#FFF4E8` |
+| Ink | `#472E25` |
+| Action | `#A64E2E` |
+| Focus ring | `#286552` |
+| Secondary accent | `#F5DFCA` |
+| Trail-name type | Georgia |
+| Other type | System sans-serif |
+| Card radius | `18px` |
+| Spacing starters | `8px`, `12px`, `17px` |
+
+Implement the values as CSS custom properties so they can be reused or
+adjusted. Include the Campfire landscape scene as decorative artwork. The card
+must fit its container without horizontal scrolling at narrow widths. Long
+trail names wrap without overflowing, and the button remains usable.
+Text and focus treatment must meet the intended contrast requirements.
+
+## Acceptance criteria:
 - `<trail-card name="..." distance="..." difficulty="...">` renders all three
   values.
 - The element is registered once and renders when it is connected to the page.
@@ -119,10 +156,10 @@ Acceptance criteria:
 - Tests run from a documented command and cover rendering, fallbacks, attribute
   changes, and the save behavior.
 
-Outside this deliverable:
+## Outside this deliverable:
 Shadow DOM, data fetching, and persistence of saved trails.
 
-Learning investigation:
+## Learning investigation:
 Before testing, I will predict what happens with a missing attribute, a very
 long name, repeated clicks, and keyboard-only use. I will inspect the element
 in DevTools and read my lifecycle callbacks, then try another attribute value.
@@ -132,11 +169,13 @@ These are the checks for this deliverable, not proof of complete accessibility o
 
 Read the draft critically. Could you actually check each criterion? “Looks professional” is vague; “a missing attribute renders a fallback” can be demonstrated. Resolve contradictory or unclear requirements, fill any gaps, remove unnecessary scope, and save the specification in your project notes or a small Markdown file. No particular filename is required.
 
-Before generating code, make sure you can explain the specification yourself. It describes your intended solution, even when AI helped you write it.
+Before generating code, make sure you can explain the specification yourself. It describes *your* intended solution, even when AI helped you write it.
 
 ## 3. Generate in stages
 
 Give the assistant the complete specification and the relevant project files, and have it build the deliverable in stages. Stages keep each result small enough to review, and a mistake in an early stage will not be hidden under later work. After each stage, inspect and check it before moving on.
+
+>As our projects get larger stages are more important. For the first contract, you can generate the whole deliverable in one stage if you want. But it is still a good idea to break it into smaller pieces so you can check each one and understand how it works.
 
 A reasonable sequence for the first contract:
 
@@ -151,7 +190,7 @@ The prompt below works for each stage. Replace the stage placeholder with one it
 Use this reviewed specification: [attach it or paste its text].
 Read these project files first: [paths or shared excerpts].
 
-Implement this stage: [one stage of the work].
+Implement this stage: [one stage of the work. or all if the project is simple enough].
 Follow the existing project conventions and preserve unrelated work.
 Do not add features or dependencies beyond the specification. If a requirement
 conflicts with the existing project, or is unclear, explain it before changing
