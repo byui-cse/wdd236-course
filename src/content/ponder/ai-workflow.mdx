@@ -257,6 +257,12 @@ Keep notes brief:
 
 Run the automated tests and manually check relevant behavior in the browser. Confirm that the tests would fail if the behavior broke. A passing test or a successful build does not establish that the component works for a person using it. An assistant's claim that something “passes” is only useful when you know what was checked and can inspect the evidence.
 
+>Not everything can be tested automatically. For example, you cannot check that a focus ring is visible or that text meets contrast requirements with a unit test. You can check the computed styles in the browser and compare them to your token values, but you cannot check that a person can read the text. You can check that a button has an accessible name, but you cannot check that a screen reader reads it correctly. You can check that a headline shows up, but not that is shows up well in cases where it is really long or in a different language. You can check that a button dispatches an event, but not that the event is handled correctly by the rest of the application. You can check that a component renders, but not that it is usable on a small screen or with a slow network.
+
+>The long headline is a good example of a case that must be checked manually. You can check that the text wraps and does not overlap other content, but you cannot check that it is still readable or that it does not make the card too tall to fit in a small viewport. 
+>
+>As you are manually testing this you can make corrections, but you will probably run into a length when exceeded you just can't make it work!  What should you do? How much control do you have over that length? Is it something that a user provides? Is it acceptable to truncate it? Should you set a max length in the form when the user enters it?  These are all questions you should be able to answer in your specification and that will determine how you handle the long headline in the implementation.
+
 You do not need to find a failure in every check. Explain what each successful check establishes and what it leaves untested. See [Try to break your work](../contract-review/#try-to-break-your-work) for peer-review preparation guidance.
 
 ## 6. Revise using evidence
